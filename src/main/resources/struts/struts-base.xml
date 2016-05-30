@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="base" namespace="/base" extends="xhjlpzd">
+		<action name="regionManager" class="regionManagerAction" method="pageInFo">
+			<result name="success">/base/regionManager.jsp</result>
+		</action>
+
+
+		<!-- 地铁 -->
+		<action name="lpMetroManager" class="lpMetroManagerAction">
+			<result name="success" >/base/metromanager.jsp</result>
+		</action>
+<!-- 		<action name="jiaoTong" class="lpMetroManagerAction" method="getJiaoTong"></action> -->
+		
+		<action name="countryAction" class="countryAction" method="queryCountryByPage">
+			<result name="success">/base/schoolmanager.jsp</result>
+		</action>
+<!-- 		学校 详情 暂定-->
+		<action name="schoolDetail" class="schoolDetailAction" method="schoolDetail">
+			<result name="success">/newenv/lpzd/detail.jsp</result>
+		</action>
+		
+		<!-- 后续添加的action -->
+		<action name="actionAll" class="actionAllAction">
+			<result name="success">/base/chanquanchaxun.jsp</result>
+		</action>
+		
+		<!--学校 -->
+		<action name="school" class="xhjLpschoolAction">
+			<result name="success">/base/schoolmanager.jsp</result>
+			<result name="input">/base/detail.jsp</result>
+			<result name="edit">/base/edit.jsp</result>
+			<result name="fail">/base/error.jsp</result>
+		</action>
+		<!-- city总action -->
+		<action name="findCity" class="cityActionAll" method="findCity">
+			<result name="success">/base/city.jsp</result>
+			<result name="fail">/base/no.jsp</result>
+		</action>
+
+		<action name="department" class="departmentAction">
+		</action>
+		
+		<action name="userProfile" class="userProfileAction">
+		</action>
+		
+
+	</package>
+</struts>

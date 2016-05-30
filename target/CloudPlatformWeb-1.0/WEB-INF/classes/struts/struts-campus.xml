@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="cam" namespace="/cam" extends="xhjlpzd">
+	    <!-- 小区楼盘操作 -->
+		<action name="campus" class="campusAction">
+			<result name="success">/campus/campusInfo.jsp</result>
+			<result name="LPXXUPDATE">/campus/editLpxx.jsp</result>
+			<result name="DETAIL">/campus/campusDetail.jsp</result>
+			<result name="DETAIL2">/campus/campusDetail2.jsp</result>
+			<result name="quxianld">/campus/quxianld.jsp</result>
+			<result name="quxiancj">/campus/quxiancj.jsp</result>
+			<result name="quxiancjcz">/campus/quxiancjcz.jsp</result>
+		</action>
+	</package>
+</struts>

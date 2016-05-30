@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://cxf.apache.org/jaxrs
+	http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<bean id="spiderDao" class="com.newenv.lpzd.spider.dao.SpiderDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="spiderService" class="com.newenv.lpzd.spider.service.SpiderService" scope="request">
+		<property name="spiderDao" ref="spiderDao" />
+	</bean>
+
+	<!-- 爬虫数据转换 -->
+	<bean id="spiderAction" class="com.newenv.lpzd.spider.action.SpiderAction"
+		scope="request">
+		<property name="lpCountryService" ref="lpCountryService" />
+		<property name="lpProvinceService" ref="lpProvinceService" />
+		<property name="xhjJccityService" ref="xhjJccityService" />
+		<property name="xhjJcStressService" ref="xhjJcstressService" />
+		<property name="xhjJcsqService" ref="xhjJcsqService" />
+		<property name="xhjLpxxService" ref="xhjLpxxService" />
+		<property name="lpSyscs1Service" ref="lpSyscs1Service" />
+		<property name="xhjLpWuYeService" ref="xhjLpWuYeService" />
+		<property name="xhjLptpService" ref="xhjLptpService" />
+		<property name="xhjLpfanghaoService" ref="xhjLpfanghaoService" />
+		<property name="lpMaintenanceUnitService" ref="lpMaintenanceUnitService" />
+		<property name="lpCostLivingService" ref="lpCostLivingService" />
+		
+		<property name="spiderService" ref="spiderService" />
+	</bean>
+</beans>

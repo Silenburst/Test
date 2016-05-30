@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	">
+
+	<context:property-placeholder location="classpath*:config/config.properties" />
+	<context:annotation-config />
+
+	<bean id="hbasepmf" class="org.datanucleus.api.jdo.JDOPersistenceManagerFactory">
+		<property name="ConnectionURL" value="${hbase.connectionURL}" />
+		<property name="Optimistic" value="true" />
+	</bean>
+
+	<bean id="lpCountryDao" class="com.newenv.lpzd.base.dao.LpCountryDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!-- 地铁dao层 -->
+	<bean id="lpMetroManagerDao" class="com.newenv.lpzd.base.dao.LpMetroManagerDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="lpProvinceDao" class="com.newenv.lpzd.base.dao.LpProvinceDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+
+	<bean id="xhjJccityDao" class="com.newenv.lpzd.base.dao.XhjJccityDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="lpDelegationDao" class="com.newenv.lpzd.lp.dao.LpDelegationDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjJcstressDao" class="com.newenv.lpzd.base.dao.XhjJcstressDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="xhjJcsqDao" class="com.newenv.lpzd.base.dao.XhjJcsqDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="xhjLplinkshoolDao" class="com.newenv.lpzd.lp.dao.XhjLplinkshoolDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!-- 房号图片 -->
+	<bean id="xhjLpfanghaoimgDao" class="com.newenv.lpzd.lp.dao.XhjLpfanghaoimgDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+
+	<bean id="xhjLpschoolDao" class="com.newenv.lpzd.base.dao.XhjLpschoolDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="personDao" class="com.newenv.lpzd.person.dao.PersonDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="lpUpdateRecordDao" class="com.newenv.lpzd.lp.dao.LpUpdateRecordDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<!-- 后续添加的action -->
+	<bean id="actionAllDao" class="com.newenv.lpzd.base.dao.ActionAllDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+
+	<bean id="lpSyscs1Dao" class="com.newenv.lpzd.lp.dao.LpSyscs1Dao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!--点评 -->
+	<bean id="lpReviewDao" class="com.newenv.lpzd.lp.dao.LpReviewDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!-- 维护单位 -->
+	<bean id="lpMaintenanceUnitDao" class="com.newenv.lpzd.lp.dao.LpMaintenanceUnitDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!-- 居住成本 -->
+	<bean id="lpCostLivingDao" class="com.newenv.lpzd.lp.dao.LpCostLivingDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<!-- 完成度 -->
+	<bean id="lpfinshDao" class="com.newenv.lpzd.lp.dao.LpfinshDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!-- 业主 -->
+	<bean id="xhjPersoninfoDao" class="com.newenv.lpzd.lp.dao.XhjPersoninfoDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!-- 业主图片 -->
+	<bean id="xhjPersonimgDao" class="com.newenv.lpzd.lp.dao.XhjPersonimgDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<!-- 业主联系电话 -->
+	<bean id="xhjCommunicatorDao" class="com.newenv.lpzd.lp.dao.XhjCommunicatorDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+
+	<bean id="xhjLpfanghaoDao" class="com.newenv.lpzd.lp.dao.XhjLpfanghaoDao">
+		<property name="lpHouseOperationLogDao" ref="lpHouseOperationLogDao" />
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjLpxxDao" class="com.newenv.lpzd.lp.dao.XhjLpxxDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjLpWuYeDao" class="com.newenv.lpzd.lp.dao.XhjLpWuYeDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjLptpDao" class="com.newenv.lpzd.lp.dao.XhjLptpDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjLpdongDao" class="com.newenv.lpzd.lp.dao.XhjLpdongDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjLpDanyuanDao" class="com.newenv.lpzd.lp.dao.XhjLpDanyuanDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjLplinkxianluDao" class="com.newenv.lpzd.lp.dao.XhjLplinkxianluDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="lpContractRecordDao" class="com.newenv.lpzd.lp.dao.LpContractRecordDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjNewhouseinfoDao" class="com.newenv.lpzd.lp.dao.XhjNewhouseinfoDao">
+		<property name="operationLogDao" ref="operationLogDao" />
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="operationLogDao" class="com.newenv.lpzd.lp.dao.LpOperationLogDao">
+		<property name="effectiveStrategy" value="bigdata" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<!-- 地址申请、采盘 -->
+	<bean id="xhjAddressApplicationDao" class="com.newenv.lpzd.lp.dao.XhjAddressApplicationDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="lpHouseOperationLogDao" class="com.newenv.lpzd.lp.dao.LpHouseOperationLogDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<!-- 划盘 -->
+	<bean id="xhjLcfzDao" class="com.newenv.lpzd.lp.dao.XhjLcfzDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="lpIndexTimer" ref="lpIndexTimer" />
+		<property name="xhjLcfz1Dao" ref="xhjLcfz1Dao" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	<bean id="xhjLcfz1Dao" class="com.newenv.lpzd.lp.dao.XhjLcfz1Dao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="lpIndexTimer" ref="lpIndexTimer" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="lpIndexTimer" class="com.newenv.lpzd.lp.dao.LpIndexTimer">
+		<property name="bmsBaseUrl" value="${bms.baseUrl}" />
+	</bean>
+
+	<bean id="lpFanghaoInfoSyncTimer" class="com.newenv.lpzd.lp.dao.LpFanghaoInfoSyncTimer">
+		<property name="xhjLpfanghaoDao" ref="xhjLpfanghaoDao" />
+		<property name="lpContractRecordDao" ref="lpContractRecordDao" />
+		<property name="period" value="1" />	<!-- 定时任务执行间隔，以分钟为单位 -->
+	</bean>
+
+	<bean id="messageService" class="com.newenv.lpzd.base.service.MessageService">
+		<property name="bmsBaseUrl" value="${bms.baseUrl}" />
+	</bean>
+
+	<!-- 登录 信息 -->
+	<bean id="userLoginDao" class="com.newenv.lpzd.security.dao.TblUserLoginDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<!-- 登录附属 信息 -->
+	<bean id="userProfileDao" class="com.newenv.lpzd.security.dao.TblUserProfileDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+
+	<bean id="pmf" class="com.newenv.lpzd.jdo.XhjJDOPersistenceManagerFactory">
+		<property name="ConnectionURL" value="${jdbc.url}" />
+		<property name="ConnectionDriverName" value="${jdbc.driverClassName}" />
+		<property name="Optimistic" value="true" />
+		<property name="ConnectionUserName" value="${jdbc.username}" />
+		<property name="ConnectionPassword" value="${jdbc.password}" />
+		<property name="RetainValues" value="true" />
+		<property name="QueryJdoqlAllowAll" value="true" />
+		<property name="AutoCreateSchema" value="false" />
+		<property name="ValidateSchema" value="false" />
+		<property name="ValidateTables" value="false" />
+		<property name="ValidateColumns" value="false" />
+		<property name="ValidateConstraints" value="false" />
+		<property name="InitializeColumnInfo" value="None" />
+		<property name="ConnectionPoolingType" value="C3P0" />
+	</bean>
+	<!-- 部门 信息 -->
+	<bean id="departmentDao" class="com.newenv.lpzd.security.dao.TblDepartmentDao">
+		<property name="effectiveStrategy" value="relational" />
+		<property name="bigDataPersistenceManagerFactory" ref="hbasepmf" />
+		<property name="relationalPersistenceManagerFactory" ref="pmf" />
+	</bean>
+	
+	
+	
+	
+	<!-- 爬虫数据源  -->
+	<bean id="crawlJDOPersistenceManagerFactory" class="com.newenv.lpzd.jdo.XhjJDOPersistenceManagerFactory">
+		<property name="ConnectionURL" value="${jdbc1.url}" />
+		<property name="ConnectionDriverName" value="${jdbc1.driverClassName}" />
+		<property name="Optimistic" value="true" />
+		<property name="ConnectionUserName" value="${jdbc1.username}" />
+		<property name="ConnectionPassword" value="${jdbc1.password}" />
+		<property name="RetainValues" value="true" />
+		<property name="QueryJdoqlAllowAll" value="true" />
+		<property name="AutoCreateSchema" value="false" />
+		<property name="ValidateSchema" value="false" />
+		<property name="ValidateTables" value="false" />
+		<property name="ValidateColumns" value="false" />
+		<property name="ValidateConstraints" value="false" />
+		<property name="InitializeColumnInfo" value="None" />
+		<property name="ConnectionPoolingType" value="C3P0" />
+	</bean>
+	
+</beans>

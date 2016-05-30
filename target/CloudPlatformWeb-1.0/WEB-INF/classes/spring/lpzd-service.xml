@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://cxf.apache.org/jaxrs
+	http://cxf.apache.org/schemas/jaxrs.xsd
+	">
+<!--   <bean id="guestProfileTxManager" class="org.springframework.orm.jdo.JdoTransactionManager"> -->
+<!--     <property name="persistenceManagerFactory" ref="pmf"/> -->
+<!--   </bean> -->
+  
+	<bean id="lpCountryService" class="com.newenv.lpzd.base.service.LpCountryService">
+		<property name="lpCountryDao" ref="lpCountryDao"></property>
+	</bean>
+
+	  <bean id="lpMetroManagerServices" class="com.newenv.lpzd.base.service.LpMetroManagerServices">
+		<property name="lpMetroManagerDao" ref="lpMetroManagerDao"></property>
+	</bean> 
+
+	
+	<bean id="lpProvinceService" class="com.newenv.lpzd.base.service.LpProvinceService">
+		<property name="lpProvinceDao" ref="lpProvinceDao"></property>
+	</bean>
+	
+	<bean id="xhjJccityService" class="com.newenv.lpzd.base.service.XhjJccityService">
+		<property name="xhjJccityDao" ref="xhjJccityDao"></property>
+	</bean>
+	
+	<bean id="xhjJcstressService" class="com.newenv.lpzd.base.service.XhjJcstressService">
+		<property name="xhjJcstressDao" ref="xhjJcstressDao"></property>
+	</bean>
+	
+	<bean id="xhjJcsqService" class="com.newenv.lpzd.base.service.XhjJcsqService">
+		<property name="xhjJcsqDao" ref="xhjJcsqDao"></property>
+	</bean>
+	 
+
+	 <!-- 短信服务 -->
+<!-- 	<bean id="smsService" class="com.newenv.xhjfww.services.impl.sms.SMSService"> </bean> -->
+
+
+	<!--文件处理 -->
+<!-- 	<bean id="fileService" class="com.newenv.xhjfww.services.impl.file.FileService"> -->
+
+
+  	<bean id="xhjLpfanghaoService" class="com.newenv.lpzd.lp.service.XhjLpfanghaoService">
+		<property name="xhjLpfanghaoDao" ref="xhjLpfanghaoDao"></property>
+		<property name="lpDelegationDao" ref="lpDelegationDao"></property>
+		<property name="lpFanghaoInfoSyncTimer" ref="lpFanghaoInfoSyncTimer"></property>
+		<property name="xhjNewhouseinfoDao" ref="xhjNewhouseinfoDao"></property>
+	</bean>
+
+	<bean id="lpSyscs1Service" class="com.newenv.lpzd.lp.service.LpSyscs1Service">
+		<property name="lpSyscs1Dao" ref="lpSyscs1Dao"></property>
+	</bean>
+	<!-- 居住成本 -->
+	<bean id="lpCostLivingService" class="com.newenv.lpzd.lp.service.LpCostLivingService">
+		<property name="lpCostLivingDao" ref="lpCostLivingDao"></property>
+	</bean>
+	
+	<bean id="lpMaintenanceUnitService" class="com.newenv.lpzd.lp.service.LpMaintenanceUnitService">
+		<property name="lpMaintenanceUnitDao" ref="lpMaintenanceUnitDao"></property>
+	</bean>
+ 	<bean id="xhjLpxxService" class="com.newenv.lpzd.lp.service.XhjLpxxService">
+		<property name="xhjLpxxDao" ref="xhjLpxxDao"></property> 
+		<property name="xhjLpdongDao" ref="xhjLpdongDao"></property>
+		<property name="xhjLpDanyuanDao" ref="xhjLpDanyuanDao"></property>
+		<property name="xhjLpfanghaoDao" ref="xhjLpfanghaoDao"></property>
+		<property name="xhjLplinkxianluDao" ref="xhjLplinkxianluDao"></property>
+		<property name="xhjLplinkshoolDao" ref="xhjLplinkshoolDao"></property>
+		<property name="xhjLcfzDao" ref="xhjLcfzDao"></property>
+		<property name="xhjLcfz1Dao" ref="xhjLcfz1Dao"></property>
+		<property name="operationLogDao" ref="operationLogDao"></property>
+		<property name="lpHouseOperationLogDao" ref="lpHouseOperationLogDao"></property>
+		<property name="lpReviewDao" ref="lpReviewDao"></property>
+		
+		
+ 	</bean> 
+ 	
+ 	<bean id="lpfinshService" class="com.newenv.lpzd.lp.service.LpfinshService">
+		<property name="lpfinshDao" ref="lpfinshDao"></property>
+ 	</bean> 
+ 	<bean id="xhjLpWuYeService" class="com.newenv.lpzd.lp.service.XhjLpWuYeService">
+		<property name="xhjLpWuYeDao" ref="xhjLpWuYeDao"></property> 
+		<property name="operationLogDao" ref="operationLogDao"></property> 
+ 	</bean> 
+ 	<bean id="xhjLptpService" class="com.newenv.lpzd.lp.service.XhjLptpService">
+		<property name="xhjLptpDao" ref="xhjLptpDao"></property> 
+ 	</bean> 
+	<bean id="regionService" class="com.newenv.lpzd.base.ws.RegionService">
+		<property name="lpCountryService" ref="lpCountryService"></property>
+		<property name="lpProvinceService" ref="lpProvinceService"></property>
+		<property name="xhjJccityService" ref="xhjJccityService"></property>
+		<property name="xhjJcStressService" ref="xhjJcstressService"></property>
+		<property name="xhjJcsqService" ref="xhjJcsqService"></property>
+		<property name="lpSyscs1Service" ref="lpSyscs1Service"></property> 
+		<property name="xhjLpfanghaoService" ref="xhjLpfanghaoService"></property> 
+	</bean>
+	<bean id="lpService" class="com.newenv.lpzd.lp.fs.LpService">
+		<property name="xhjLpxxService" ref="xhjLpxxService"></property>
+	</bean>
+	
+	<bean id="fangHaoService" class="com.newenv.lpzd.lp.fs.FangHaoService">
+		<property name="xhjLpfanghaoService" ref="xhjLpfanghaoService"></property>
+	</bean>
+	
+	<bean id="houseParseService" class="com.newenv.lpzd.lp.fs.HouseParseService">
+	</bean>
+	
+	<!-- 	学校 -->
+ 	<bean id="xhjLpschoolService" class="com.newenv.lpzd.base.service.XhjLpschoolService">
+		<property name="xhjLpschoolDao" ref="xhjLpschoolDao"></property>
+	</bean>
+	
+		<!-- 	人员信息 -->
+ 	<bean id="personServices" class="com.newenv.lpzd.person.services.PersonServices">
+		<property name="personDao" ref="personDao"/>
+		<property name="xhjLpfanghaoDao" ref="xhjLpfanghaoDao"/>
+		<property name="xhjPersonimgDao" ref="xhjPersonimgDao"/>
+		<property name="xhjPersoninfoDao" ref="xhjPersoninfoDao"/>
+		<property name="xhjCommunicatorDao" ref="xhjCommunicatorDao"/>
+		<property name="xhjLpfanghaoimgDao" ref="xhjLpfanghaoimgDao"/>
+		<property name="lpUpdateRecordDao" ref="lpUpdateRecordDao" />
+		<property name="lpHouseOperationLogDao" ref="lpHouseOperationLogDao"></property>
+	</bean>
+	
+	<!--  后续添加action-->
+ 	<bean id="actionAllServices" class="com.newenv.lpzd.base.service.ActionAllService">
+		<property name="actionAllDao" ref="actionAllDao"></property>
+	</bean>
+	
+	<bean id="schoolService" class="com.newenv.lpzd.base.ws.SchoolService">
+		<property name="xhjLpschoolService" ref="xhjLpschoolService"></property>
+	</bean>
+	
+	<bean id="lpContractRecordService" class="com.newenv.lpzd.lp.service.LpContractRecordService">
+		<property name="lpContractRecordDao" ref="lpContractRecordDao"></property> 
+		<property name="lpFanghaoInfoSyncTimer" ref="lpFanghaoInfoSyncTimer"></property> 
+ 	</bean> 
+ 	
+ 	<bean id="contractRecordService" class="com.newenv.lpzd.lp.fs.ContractRecordService">
+		<property name="lpContractRecordService" ref="lpContractRecordService"></property>
+ 	</bean> 
+	
+	<!-- 地址申请、采盘 -->
+ 	<bean id="xhjAddressApplicationService" class="com.newenv.lpzd.lp.service.XhjAddressApplicationService">
+		<property name="xhjAddressApplicationDao" ref="xhjAddressApplicationDao"></property>
+	</bean>
+	
+	<!-- 划盘 -->
+ 	<bean id="xhjLcfzService" class="com.newenv.lpzd.lp.service.XhjLcfzService">
+		<property name="xhjLcfzDao" ref="xhjLcfzDao"></property>
+		<property name="tblDepartmentDao" ref="departmentDao"></property>
+	</bean>
+	<bean id="xhjLcfz1Service" class="com.newenv.lpzd.lp.service.XhjLcfz1Service">
+		<property name="xhjLcfz1Dao" ref="xhjLcfz1Dao"></property>
+		<property name="tblDepartmentDao" ref="departmentDao"></property>
+	</bean>
+	
+	<!-- 登录 -->
+	<bean id="userLoginService" class="com.newenv.lpzd.security.service.UserLoginService">
+		<property name="userLoginDao" ref="userLoginDao" />
+		<property name="userProfileDao" ref="userProfileDao" />
+		<property name="departmentDao" ref="departmentDao" />
+		<property name="xhjJccityDao" ref="xhjJccityDao" />
+		<property name="hrPermissionUrl" value="https://192.168.1.207:8444/xhjHR/control/findAllUserHasPromissionsJson" />
+		<property name="sysType" value="LPZD" />
+	</bean>  
+	
+	<bean id="departmentService" class="com.newenv.lpzd.security.service.TblDepartmentService">
+		<property name="tblDepartmentDao" ref="departmentDao" />
+	</bean> 
+	
+	<bean id="userProfileService" class="com.newenv.lpzd.security.service.TblUserProfileService">
+		<property name="tblUserProfileDao" ref="userProfileDao" />
+	</bean> 
+
+   <jaxrs:server id="services" address="/newenv/lpzd">
+	    <jaxrs:serviceBeans>
+	      <ref bean = "regionService"></ref>
+	      <ref bean = "schoolService"></ref>
+	      <ref bean= "fangHaoService"></ref>
+	      <ref bean= "contractRecordService"></ref>
+	      <ref bean= "lpService"></ref>
+	      <ref bean= "houseParseService"></ref>
+	    </jaxrs:serviceBeans>
+	    <jaxrs:providers>
+	        <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	    </jaxrs:providers>
+    </jaxrs:server>
+
+
+</beans>

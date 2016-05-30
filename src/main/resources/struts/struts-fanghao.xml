@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<!-- 	<constant name="struts.action.excludePattern" value="/amq*"></constant> -->
+<!-- 	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant> -->
+	<package name="fanghao" namespace="/newenv/lpzd" extends="xhjlpzd">
+	 <action name="fanghao*" class="com.newenv.lpzd.lp.action.XhjLpfanghaoAction" method="{1}" >
+			<result name="fanghaodt">/fanghao/fanghaodtTab.jsp</result>
+			<result name="fanghaoxf">/fanghao/fanghaoxfTab.jsp</result>
+			<result name="fanghaoxq">/fanghao/fanghaoxqTab.jsp</result>
+			<result name="xfType">/fanghao/fanghaoxqlxTab.jsp</result>
+			<result name="weituo">/fanghao/fanghaoweituo.jsp</result>
+			<result name="detail">/fanghao/fanghaodetail.jsp</result>
+			<result name="xfdetail">/fanghao/xfdetail.jsp</result>
+			<result name="xhjLpfanghao">/fanghao/fanghaoindex.jsp</result>
+		</action> 
+	</package>
+</struts>

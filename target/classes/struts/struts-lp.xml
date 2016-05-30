@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="lp" namespace="/lp" extends="xhjlpzd">
+	
+		<!-- 采盘和地址申请审核 -->
+		<action name="check" class="checkAction">
+			<result name="success">/lp/checkList.jsp</result>
+		</action>
+		
+		<action name="xhjAddressApplication" class="xhjAddressApplicationAction">
+			<result name="check">/lp/addressApplicationCheck.jsp</result>
+			<result name="info">/lp/addressApplicationInfo.jsp</result>
+		</action>
+		
+		<action name="lpxxCollect" class="lpxxCollectAction">
+			<result name="success">/lp/collectManage.jsp</result>
+			<result name="info">/lp/lpxxCollectCheckInfo.jsp</result>
+		</action>
+		
+		
+		<!-- 责任盘 -->
+		<action name="lcfz" class="lcfzAction">
+			<result name="success">/lp/lcfz.jsp</result>
+		</action>
+		
+		<!-- 维护盘、范围盘 -->
+		<action name="lcfz1" class="lcfz1Action">
+			<result name="success">/lp/lcfz1.jsp</result>
+		</action>
+		
+	</package>
+</struts>

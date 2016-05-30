@@ -1,0 +1,40 @@
+/* CSS Document */
+.sousuotiaojian{ font-size:30px; text-align:center; color:#5cc26f; line-height:50px; background:#5cc26f; color:#fff; }
+
+.form-block .checkbox label{ padding-left:0px;}
+.line-height30{ line-height:30px;}
+.panel-group .fr a{ padding:5px 10px; background:#DCDCDC; -moz-border-radius:5px; -webkit-border-radius: 5px; border-radius: 5px;}
+.height50{ height:40px; border-bottom:2px #CCCCCC solid; margin-bottom: 10px;}
+.height20{ height:20px; border-bottom:1px #CCCCCC solid; margin-bottom: 10px; line-height:20px;}
+.height20 font{ line-height:20px; float:left;}
+.height20 input{ margin-top:3px; float:left;}
+.panel-group .panel .panel-heading a[data-toggle="collapse"]:before {
+ text-align:center;
+	float: left;
+  position: relative;
+  display: block;
+  content: '\f107';
+  font-family: 'FontAwesome';
+   transition: all 150ms ease-in-out; width:20px; height:5px;
+   font-size:12px;
+   transform: rotate(0deg);
+}
+.panel-title a{ text-align: center; font-size:14px; }
+.panel-group.panel-group-joined .panel .panel-collapse .panel-body{border-top: 2px solid #f5f5f5;}
+.panel-group .panel .panel-heading a[data-toggle="collapse"].collapsed:before{ margin-top:5px; float: left; position: relative;content: '\f107'; transform: rotate(-90deg);display: block;font-family: 'FontAwesome';  transition: all 150ms ease-in-out; width:20px; height:5px; text-align:center;  font-size:12px;}
+.both{ clear:both;}
+.width100{ width:115px; height:40px;}
+.line-height20{ line-height:20px;}
+.fl{ float:left;}
+.fr{ float:right;}
+.panel-collapse .padding-left50{ padding-left:50px;}
+.soushuo{ height:32px; ; float:left; }
+.yansef4{ background:#f4f4f4; padding-left: 20px; padding-top:10px; padding-bottom:10px; color:#48890C; padding-right: 20px;}
+.paddinglr{ padding-left: 30px; padding-right: 30px;}
+.col-md-1 .control-label{ line-height:25px; float:right;}
+.magin-top5{ margin-top:8px;}
+.col-md-10 .nav.nav-tabs > li{ width:inherit; height:inherit;}
+.wenbenkuan1{  height: 32px;
+  padding: 6px 12px;
+  font-size: 13px;}
+  .margin15{ margin-top:8px;}

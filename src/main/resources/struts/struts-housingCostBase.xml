@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="add" namespace="/add" extends="xhjlpzd">
+		
+		<action name="maintenanceAction" class="com.newenv.lpzd.base.action.MaintenanceAction">
+		</action>
+		<action name="housingCostAction" class="com.newenv.lpzd.base.action.HousingCostAction">
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="xhjlpzd" extends="struts-default, json-default" namespace="/" >
+
+		<interceptors>
+<!-- 			定义一个是否登录拦截器 -->
+			<interceptor name="loginintercetor"
+				class="com.newenv.lpzd.security.interceptor.LoginInterceptor"></interceptor>
+<!-- 			拦截器栈 -->
+			<interceptor-stack name="xhjDefaultStack">
+<!-- 				引用默认的拦截器堆栈 -->
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginintercetor"></interceptor-ref>
+			</interceptor-stack>
+	
+		</interceptors>
+	
+<!-- 		默认拦截器 -->
+		<default-interceptor-ref name="xhjDefaultStack" />
+	
+<!-- 		默认控制器 -->
+		<default-action-ref name="login"></default-action-ref>
+	
+	
+<!-- 		定义全局Result -->
+		<global-results>
+<!-- 			默认视图 重新登錄 -->
+			<result name="login" type="redirectAction"> <param name="actionName">login</param> 
+				</result>
+			<result name="login" type="redirectAction">login</result>
+			<result name="index" type="redirect">/crawl/verInfo.jsp</result>
+		</global-results>
+	
+		<action name="dologin" class="loginAction">
+<!-- 			默认跳转的页面 -->
+			<result name="success" type="redirect">/crawl/verInfo.jsp
+			</result>
+			<result name="failure">/login.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	
+		<action name="login" class="loginAction" method="login">
+			<result name="success">/login.jsp</result>
+		</action>
+		
+		<action name="ssoLogin" class="loginAction" method="ssoLogin">
+			<result name="success" type="redirect">/crawl/verInfo.jsp</result>
+			<result name="failure">/login.jsp</result>
+		</action>
+	
+		<action name="getTitle" class="loginAction" method="findAllTitleNamesByUsername">
+		</action> 
+		
+		<action name="changeTitle" class="loginAction" method="setOrChangeTitle">
+		</action>
+	
+		<!-- 用戶退出 -->
+		<action name="loginOut" class="loginAction" method="loginOut">
+			<result name="success">/login.jsp</result>
+
+		</action>  
+
+        
+        <action name="file" class="fileAction">
+		</action>
+		
+		<action name="KE" class="KEAction">
+		
+		</action>
+	</package>
+	
+	
+	 <include file="struts/struts-*.xml" />
+	 
+</struts>

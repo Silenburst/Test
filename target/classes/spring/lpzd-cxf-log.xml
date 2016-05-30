@@ -1,0 +1,60 @@
+<!-- ==================================================================== -->
+<!-- CXF framework bean configuration. This abstracts all the CXF related -->
+<!-- configuration artifacts.                                             -->
+<!-- ==================================================================== -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cxf="http://cxf.apache.org/core"
+  xmlns:jaxws="http://cxf.apache.org/jaxws"
+  xmlns:soap="http://cxf.apache.org/bindings/soap"
+  xmlns:jms="http://cxf.apache.org/transports/jms"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+    http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
+    http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+    http://cxf.apache.org/transports/jms http://cxf.apache.org/schemas/configuration/jms.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+    ">
+
+  <!-- =============================== -->
+  <!-- Base CXF configuration elements -->
+  <!-- =============================== -->
+ 
+  <!-- ============================== -->
+  <!--  Enable JMX management for CXF -->
+  <!-- ============================== -->
+
+  <!-- ==================================================================== -->
+  <!--  Logging interceptors to log inboud and outbound messages and faults -->
+  <!-- ==================================================================== -->
+  <bean id="logInbound" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+  <bean id="logOutbound" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+  <import resource="classpath*:client-context.xml" />
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+  <!-- ==================== -->
+  <!--  Custom interceptors -->
+
+  <!-- ====================== -->
+  <!--  CXF Bus configuration -->
+  <!-- ====================== -->
+  <cxf:bus>
+    <cxf:inInterceptors>
+      <ref bean="logInbound" />
+    </cxf:inInterceptors>
+    <cxf:outInterceptors>
+      <ref bean="logOutbound" />
+    </cxf:outInterceptors>
+  </cxf:bus>
+
+  <!-- Get the ongoing message response times - longest response time -->
+  <bean id="org.apache.cxf.management.counters.CounterRepository"
+    class="org.apache.cxf.management.counters.CounterRepository">
+    <property name="bus" ref="cxf" />
+  </bean>
+
+</beans>

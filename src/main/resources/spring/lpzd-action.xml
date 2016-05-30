@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://cxf.apache.org/jaxrs
+	http://cxf.apache.org/schemas/jaxrs.xsd">
+	
+	<bean id="fileAction" class="com.newenv.lpzd.lp.action.FileAction" scope="request">
+	</bean> 
+	
+	<bean id="KEAction" class="com.newenv.lpzd.lp.action.KindEditorAction" scope="request">
+	</bean>
+  
+	<bean id="regionManagerAction" class="com.newenv.lpzd.base.action.RegionManagerAction" scope="request">
+		<property name="lpCountryService" ref="lpCountryService" />
+	</bean>
+	
+	
+	<bean id="xhjLpschoolAction" class="com.newenv.lpzd.base.action.XhjLpschoolAction" scope="request">
+		<property name="xhjLpschoolService" ref="xhjLpschoolService" />
+	</bean>
+	
+<!-- 后续添加action -->		
+	<bean id="actionAllAction" class="com.newenv.lpzd.base.action.ActionAll" scope="request">
+		<property name="actionAllServices" ref="actionAllServices" />
+	</bean>
+	
+	<bean id="personAction" class="com.newenv.lpzd.person.action.PersonAction" scope="request">
+		<property name="personServices" ref="personServices" />
+	</bean>
+	
+	<!-- 地址申请、采盘 -->
+	<bean id="xhjAddressApplicationAction" class="com.newenv.lpzd.lp.action.XhjAddressApplicationAction" scope="request">
+		<property name="addressApplicationService" ref="xhjAddressApplicationService" />
+		<property name="cityService" ref="xhjJccityService" />
+		<property name="stressService" ref="xhjJcstressService" />
+		<property name="sqService" ref="xhjJcsqService" />
+		<property name="departmentService" ref="departmentService" />
+		<property name="userProfileService" ref="userProfileService" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	
+	<bean id="lpxxCollectAction" class="com.newenv.lpzd.lp.action.LpxxCollectAction" scope="request">
+		<property name="lpxxService" ref="xhjLpxxService" />
+		<property name="xhjJcstressService" ref="xhjJcstressService" />
+		<property name="xhjJcsqService" ref="xhjJcsqService" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	
+	<!-- 划盘 -->
+	<bean id="lcfzAction" class="com.newenv.lpzd.lp.action.XhjLcfzAction" scope="request">
+		<property name="xhjLcfzService" ref="xhjLcfzService" />
+		<property name="xhjJcstressService" ref="xhjJcstressService" />
+	</bean>
+	
+	<bean id="lcfz1Action" class="com.newenv.lpzd.lp.action.XhjLcfz1Action" scope="request">
+		<property name="xhjLcfz1Service" ref="xhjLcfz1Service" />
+		<property name="xhjJcstressService" ref="xhjJcstressService" />
+	</bean>
+	
+	<bean id="checkAction" class="com.newenv.lpzd.lp.action.CheckAction" scope="request">
+		<property name="xhjJcstressService" ref="xhjJcstressService" />
+	</bean>
+	
+  	<bean id="lpMetroManagerAction" class="com.newenv.lpzd.base.action.LpMetroManagerAction" > 
+		<property name="lpMetroManagerServices" ref="lpMetroManagerServices" /> 
+	</bean>    
+	
+	
+ 	<bean id="xhjLpfanghaoAction" class="com.newenv.lpzd.lp.action.XhjLpfanghaoAction" scope="request">
+ 		<property name="xhjLpfanghaoService" ref="xhjLpfanghaoService" /> 
+ 		<property name="lpSyscs1Service" ref="lpSyscs1Service" />
+ 		<property name="xhjJcStressService" ref="xhjJcstressService" /> 
+ 		<property name="lpCountryService" ref="lpCountryService" /> 
+ 		<property name="xhjLpxxService" ref="xhjLpxxService" /> 
+ 	</bean> 
+	
+	<!--登录-->
+	<bean id="loginAction" class="com.newenv.lpzd.security.action.LoginAction" scope="request">
+		<property name="userLoginService" ref="userLoginService" />
+		<property name="xhjJccityService" ref="xhjJccityService" />
+	</bean> 
+	<bean id="departmentAction" class="com.newenv.lpzd.security.action.DepartmentAction" scope="request">
+		<property name="departmentService" ref="departmentService" />
+	</bean>
+	<bean id="userProfileAction" class="com.newenv.lpzd.security.action.UserProfileAction" scope="request">
+		<property name="userProfileService" ref="userProfileService" />
+	</bean>
+	<bean id="campusAction" class="com.newenv.lpzd.lp.action.XhjCampusAction" scope="request">
+		<property name="lpCountryService" ref="lpCountryService" />
+		<property name="lpProvinceService" ref="lpProvinceService" />
+		<property name="xhjJccityService" ref="xhjJccityService" />
+		<property name="xhjJcStressService" ref="xhjJcstressService" />
+		<property name="xhjJcsqService" ref="xhjJcsqService" />
+		<property name="xhjLpxxService" ref="xhjLpxxService" />
+		<property name="lpSyscs1Service" ref="lpSyscs1Service" />
+		<property name="xhjLpWuYeService" ref="xhjLpWuYeService" />
+		<property name="xhjLptpService" ref="xhjLptpService" />
+		<property name="xhjLpfanghaoService" ref="xhjLpfanghaoService" />
+		<property name="lpMaintenanceUnitService" ref="lpMaintenanceUnitService" />
+		<property name="lpCostLivingService" ref="lpCostLivingService" />
+		<property name="lpfinshService" ref="lpfinshService" />
+	</bean> 
+
+	
+</beans>

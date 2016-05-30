@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="spider" namespace="/spider" extends="xhjlpzd">
+	    <!-- 小区楼盘操作 -->
+		<action name="spiderAction" class="spiderAction">
+			<result name="success">/spider/index.jsp</result>
+			<result name="GATHER">/spider/gather.jsp</result>
+			<result name="DETAIL">/spider/campusDetail.jsp</result>
+		</action>
+	</package>
+</struts>

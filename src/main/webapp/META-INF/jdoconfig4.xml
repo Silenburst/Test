@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jdoconfig xmlns="http://java.sun.com/xml/ns/jdo/jdoconfig"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/jdo/jdoconfig http://java.sun.com/xml/ns/jdo/jdoconfig_3_0.xsd"
+    xsi:noNamespaceSchemaLocation="http://java.sun.com/xml/ns/jdo/jdoconfig">
+
+    <!-- Datastore Txn PMF -->
+    <persistence-manager-factory name="Datastore">
+        <property name="javax.jdo.PersistenceManagerFactoryClass"
+            value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
+        <property name="javax.jdo.option.ConnectionDriverName"
+            value="com.mysql.jdbc.Driver"/>
+        <property name="javax.jdo.option.ConnectionURL"
+            value="jdbc:mysql://localhost:3306/vnexdemo?useServerPrepStmts=false"/>
+        <property name="javax.jdo.option.ConnectionUserName"
+            value="root"/>
+        <property name="javax.jdo.option.ConnectionPassword"
+            value="root"/>
+        <property name="javax.jdo.option.Optimistic"
+            value="false"/>
+        <property name="datanucleus.autoCreateSchema"
+            value="true"/>
+    </persistence-manager-factory>
+
+    <!-- Optimistic Txn PMF -->
+    <persistence-manager-factory name="Optimistic">
+        <property name="javax.jdo.PersistenceManagerFactoryClass"
+            value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
+        <property name="javax.jdo.option.ConnectionDriverName"
+            value="com.mysql.jdbc.Driver"/>
+        <property name="javax.jdo.option.ConnectionURL"
+            value="jdbc:mysql://localhost:3306/vnextdemo?useServerPrepStmts=false"/>
+        <property name="javax.jdo.option.ConnectionUserName"
+            value="root1"/>
+        <property name="javax.jdo.option.ConnectionPassword"
+            value="root1"/>
+        <property name="javax.jdo.option.Optimistic"
+            value="true"/>
+        <property name="datanucleus.autoCreateSchema"
+            value="true"/>
+    </persistence-manager-factory>
+
+</jdoconfig>

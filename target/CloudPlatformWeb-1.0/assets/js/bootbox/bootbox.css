@@ -1,0 +1,19 @@
+div.bootbox{
+	position:fixed;
+	top:200px;
+}
+
+.bootbox .modal-title{
+	color:black;
+	font-weight:bold;
+}
+
+.bootbox .btn-primary{
+	color: #ffffff;
+	background-color: #40bbea;
+	border-color: #29b3e7;
+}
+
+.bootbox-body{
+	color:black;
+}
